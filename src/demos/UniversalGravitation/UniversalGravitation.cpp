@@ -26,7 +26,7 @@ void UniversalGravitation::createEntities(sf::Vector2f vector){
     ball.setElasticity(1.f);
     ball.setDamping(0.1f);
     ball.particle_property.setFillColor(sf::Color::White);
-    ball.particle_property.setRadius(5.f);
+    ball.particle_property.setRadius(1.f);
     ball.particle_property.setOrigin(ball.particle_property.getRadius(), ball.particle_property.getRadius());
     ball.particle_property.setPosition(vector);
     this->balls.push_back(ball);
@@ -57,14 +57,16 @@ void UniversalGravitation::update(float dt, sf::Vector2f mouse_position){
         }
 
         // for(int i = 0; i < this->balls.size(); i++){
-        //     for(int j = i+1; j < this->balls.size(); j++){
-        //         this->attractor(this->balls[i], this->balls[j]);
-        //         if(this->collisionDetectionOperation._ballCollide(this->balls[i], this->balls[j])){
-        //             this->balls[i].setAcceleration(this->balls[i].getAcceleration() * 0.0001f);
-        //             this->balls[j].setAcceleration(this->balls[j].getAcceleration() * 0.0001f);
-        //         }else{
-        //             this->balls[i].setAcceleration(-this->force/this->balls[i].getMass());
-        //             this->balls[j].setAcceleration(this->force/this->balls[j].getMass());
+        //     for(int j = 0; j < this->balls.size(); j++){
+        //         if(i != j){
+        //             this->attractor(this->balls[i], this->balls[j]);
+        //             if(this->collisionDetectionOperation._ballCollide(this->balls[i], this->balls[j])){
+        //                 this->balls[i].setAcceleration(this->balls[i].getAcceleration() * 0.0001f);
+        //                 this->balls[j].setAcceleration(this->balls[j].getAcceleration() * 0.0001f);
+        //             }else{
+        //                 this->balls[i].setAcceleration(-this->force/this->balls[i].getMass());
+        //                 this->balls[j].setAcceleration(this->force/this->balls[j].getMass());
+        //             }
         //         }
         //     }
         // }
