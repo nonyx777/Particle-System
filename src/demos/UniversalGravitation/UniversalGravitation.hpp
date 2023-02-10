@@ -30,7 +30,7 @@ class UniversalGravitation{
 
         //custom functions
         void createEntities(sf::Vector2f vector);
-        void attractor(Ball &a, Ball &b);
+        sf::Vector2f attractor(Ball &a, Ball &b);
 
         //integrator and displayer
         void update(float dt, sf::Vector2f mouse_position);
