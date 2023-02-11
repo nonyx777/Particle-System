@@ -1,6 +1,6 @@
 #include "Operation.h"
 
-//defining tirg functions
+//defining trig functions
 float Operation::_sin(float degree){
     Operation::radian = degree * this->_deg2Rad();
     double radian_double = static_cast<double> (radian);
@@ -70,7 +70,7 @@ sf::Vector2f Operation::_transalte(sf::Vector2f vector_a, sf::Vector2f _Vector_b
     return vector_a += distance;
 }
 float Operation::_dotProduct(sf::Vector2f a, sf::Vector2f b){
-    return a.x * b.x * a.y * b.y;
+    return a.x * b.x + a.y * b.y;
 }
 bool Operation::_parallelVectors(sf::Vector2f a, sf::Vector2f b){
     sf::Vector2f rotated_vector_a = this->_rotateBy90(a);

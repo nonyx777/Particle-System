@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "../demos/UniversalGravitation/UniversalGravitation.hpp"
+// #include "../demos/UniversalGravitation/UniversalGravitation.hpp"
+#include "../demos/Smoke/Smoke.hpp"
 
 using namespace std;
 
@@ -18,7 +19,9 @@ class Engine{
         sf::Event event;
 
         //instantiating objects
-        UniversalGravitation universalGravitation;
+        // UniversalGravitation universalGravitation;
+        Smoke smoke;
+
 
         //mouse position
         sf::Vector2i mouse_position;

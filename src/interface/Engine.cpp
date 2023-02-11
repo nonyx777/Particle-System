@@ -32,10 +32,10 @@ void Engine::pollEvent(){
             case sf::Event::Closed:
                 this->window->close();
                 break;
-            case sf::Event::KeyPressed:
-                if(this->event.key.code == sf::Keyboard::Q)
-                    this->universalGravitation.createEntities(this->mouse_position_view);
-                break;
+            // case sf::Event::KeyPressed:
+            //     if(this->event.key.code == sf::Keyboard::Q)
+                    // this->universalGravitation.createEntities(this->mouse_position_view);
+            //     break;
         }
     }
 }
@@ -44,12 +44,14 @@ void Engine::update(float dt){
     this->mouse_position = sf::Mouse::getPosition(*this->window);
     this->mouse_position_view = this->window->mapPixelToCoords(this->mouse_position);
 
-    universalGravitation.update(dt, this->mouse_position_view);
+    // universalGravitation.update(dt, this->mouse_position_view);
+    this->smoke.update(dt);
 }
 void Engine::render(){
     this->window->clear(sf::Color::Black);
 
-    universalGravitation.render(this->window);
+    // universalGravitation.render(this->window);
+    this->smoke.render(this->window);
 
     this->window->display();
 }
