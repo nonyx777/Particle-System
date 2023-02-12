@@ -29,11 +29,18 @@ void Smoke::createBalls(){
 
 //defining integrator and displayer
 void Smoke::update(float dt){
+    for(int i = this->balls.size()-1; i > 0; i--){
+        if(this->balls[i].alpha <= 0)
+            this->balls.erase(this->balls.begin() + i);
+    }
+
     for(int i = 0; i < 5; i++)
         this->createBalls();
 
     for(Ball &ball : this->balls)
         ball.update(dt);
+    
+    std::cout << this->balls.size() << std::endl;
 }
 void Smoke::render(sf::RenderTarget* target){
     for(Ball &ball : this->balls)

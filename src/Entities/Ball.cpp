@@ -2,9 +2,12 @@
 #include "../../include/Particle.hpp"
 
 class Ball : public Particle{
-    private:
+    public:
         int alpha = 255;
     public:
+        Ball(){
+            //..
+        }
         void update(float dt){
             this->velocity += this->acceleration * dt;
             this->particle_property.move(this->velocity);
