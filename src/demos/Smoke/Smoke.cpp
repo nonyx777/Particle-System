@@ -9,7 +9,7 @@ void Smoke::createBalls(){
     float max_x = 1.f;
 
     float min_y = -1.f;
-    float max_y = -5.f;
+    float max_y = -3.f;
 
     this->random_velocity_x = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x-min_x)));
     this->random_velocity_y = min_y + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(max_y-min_y)));
@@ -18,8 +18,6 @@ void Smoke::createBalls(){
         this->tempo = this->random_velocity_x;
         Ball ball;
         ball.particle_property.setFillColor(sf::Color::White);
-        ball.particle_property.setOutlineColor(sf::Color::White);
-        ball.particle_property.setOutlineThickness(1.f);
         ball.particle_property.setRadius(10.f);
         ball.particle_property.setOrigin(sf::Vector2f(ball.particle_property.getRadius(), ball.particle_property.getRadius()));
         ball.setPosition(this->spawn_point);
