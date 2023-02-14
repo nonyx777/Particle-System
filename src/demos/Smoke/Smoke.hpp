@@ -21,7 +21,6 @@ class Smoke{
 
         //custom function
         void createBalls();
-        void createBalls1();
 
         //integrator and displayer
         void update(float dt);
