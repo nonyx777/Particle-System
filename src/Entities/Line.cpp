@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 class Line{
-    private:
+    protected:
         sf::Vector2f base;
         sf::Vector2f direction;
     

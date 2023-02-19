@@ -3,7 +3,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 // #include "../demos/UniversalGravitation/UniversalGravitation.hpp"
-#include "../demos/Smoke/Smoke.hpp"
+// #include "../demos/Smoke/Smoke.hpp"
+#include "../demos/Rain/Rain.hpp"
 
 using namespace std;
 
@@ -20,7 +21,8 @@ class Engine{
 
         //instantiating objects
         // UniversalGravitation universalGravitation;
-        Smoke smoke;
+        // Smoke smoke;
+        Rain rain;
 
 
         //mouse position

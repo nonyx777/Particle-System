@@ -45,13 +45,15 @@ void Engine::update(float dt){
     this->mouse_position_view = this->window->mapPixelToCoords(this->mouse_position);
 
     // universalGravitation.update(dt, this->mouse_position_view);
-    this->smoke.update(dt);
+    // this->smoke.update(dt);
+    this->rain.update(dt);
 }
 void Engine::render(){
     this->window->clear(sf::Color::Black);
 
     // universalGravitation.render(this->window);
-    this->smoke.render(this->window);
+    // this->smoke.render(this->window);
+    this->rain.render(this->window);
 
     this->window->display();
 }
