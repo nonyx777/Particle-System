@@ -8,11 +8,6 @@ class Particle{
     
     public:
         Particle();
-        sf::CircleShape particle_property;
-
-        //integrator and displayer
-        virtual void update(float dt);
-        void render(sf::RenderTarget* target);
 
         //declaring accessors and mutators
         void setMass(float mass);

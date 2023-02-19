@@ -20,7 +20,7 @@ void Smoke::createBalls(){
         ball.particle_property.setFillColor(sf::Color::White);
         ball.particle_property.setRadius(10.f);
         ball.particle_property.setOrigin(sf::Vector2f(ball.particle_property.getRadius(), ball.particle_property.getRadius()));
-        ball.setPosition(this->spawn_point);
+        ball.particle_property.setPosition(this->spawn_point);
         ball.setVelocity(sf::Vector2f(this->random_velocity_x, this->random_velocity_y));
 
         this->balls.push_back(ball);
