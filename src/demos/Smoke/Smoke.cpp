@@ -23,12 +23,12 @@ void Smoke::createBoxes(){
     this->random_velocity_x = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x-min_x)));
     this->random_velocity_y = min_y + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(max_y-min_y)));
 
-    float angle = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x - min_x)));
+    float angular_speed = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x - min_x)));
 
     if(this->random_velocity_x != tempo){
         this->tempo = this->random_velocity_x;
         Box box;
-        box.angular_speed = angle;
+        box.angular_speed = angular_speed;
         box.particle_property.setTexture(&this->texture);
         box.particle_property.setSize(sf::Vector2f(60.f, 60.f));
         box.particle_property.setOrigin(box.particle_property.getSize()/2.f);
