@@ -46,14 +46,16 @@ void Engine::update(float dt){
 
     // universalGravitation.update(dt, this->mouse_position_view);
     // this->smoke.update(dt);
-    this->rain.update(dt);
+    // this->rain.update(dt);
+    this->snow.update(dt);
 }
 void Engine::render(){
     this->window->clear(sf::Color::Black);
 
     // universalGravitation.render(this->window);
     // this->smoke.render(this->window);
-    this->rain.render(this->window);
+    // this->rain.render(this->window);
+    this->snow.render(this->window);
 
     this->window->display();
 }
