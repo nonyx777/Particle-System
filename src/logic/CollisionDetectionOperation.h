@@ -3,6 +3,7 @@
 #include "Operation.h"
 #include "../Entities/Ball.cpp"
 #include "../Entities/Line.cpp"
+// #include "../Entities/Box.cpp"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class CollisionDetectionOperation{
         Operation operation;
         Ball ball;
         Line line;
+        // Box box;
 
 
     public:

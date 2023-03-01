@@ -1,7 +1,16 @@
 #include "Smoke.hpp"
 
+//defining constructor
+Smoke::Smoke(){
+    try{
+        this->texture.loadFromFile("/home/nonyx/Desktop/scripts/C++/personal/WhatEverComesToMind/Particle-System/src/demos/Smoke/smoke.png");
+    }catch(...){
+        std::cout << "Could not load image" << std::endl;
+    }
+}
+
 //defining custom functions
-void Smoke::createBalls(){
+void Smoke::createBoxes(){
     auto seed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
     srand(seed);
 
@@ -14,35 +23,38 @@ void Smoke::createBalls(){
     this->random_velocity_x = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x-min_x)));
     this->random_velocity_y = min_y + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(max_y-min_y)));
 
+    float angle = min_x + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(max_x - min_x)));
+
     if(this->random_velocity_x != tempo){
         this->tempo = this->random_velocity_x;
-        Ball ball;
-        ball.particle_property.setFillColor(sf::Color::White);
-        ball.particle_property.setRadius(10.f);
-        ball.particle_property.setOrigin(sf::Vector2f(ball.particle_property.getRadius(), ball.particle_property.getRadius()));
-        ball.particle_property.setPosition(this->spawn_point);
-        ball.setVelocity(sf::Vector2f(this->random_velocity_x, this->random_velocity_y));
+        Box box;
+        box.angular_speed = angle;
+        box.particle_property.setTexture(&this->texture);
+        box.particle_property.setSize(sf::Vector2f(60.f, 60.f));
+        box.particle_property.setOrigin(box.particle_property.getSize()/2.f);
+        box.particle_property.setPosition(this->spawn_point);
+        box.setVelocity(sf::Vector2f(this->random_velocity_x, this->random_velocity_y));
 
-        this->balls.push_back(ball);
+        this->boxes.push_back(box);
     }
 }
 
 //defining integrator and displayer
 void Smoke::update(float dt){
-    for(int i = this->balls.size()-1; i > 0; i--){
-        if(this->balls[i].alpha <= 0)
-            this->balls.erase(this->balls.begin() + i);
+    for(int i = this->boxes.size()-1; i > 0; i--){
+        if(this->boxes[i].alpha <= 0)
+            this->boxes.erase(this->boxes.begin() + i);
     }
 
     for(int i = 0; i < 5; i++)
-        this->createBalls();
+        this->createBoxes();
 
-    for(Ball &ball : this->balls)
-        ball.update(dt);
+    for(Box &box : this->boxes)
+        box.update(dt);
     
-    std::cout << this->balls.size() << std::endl;
+    // std::cout << this->boxes.size() << std::endl;
 }
 void Smoke::render(sf::RenderTarget* target){
-    for(Ball &ball : this->balls)
-        ball.render(target);
+    for(Box &box : this->boxes)
+        box.render(target);
 }
